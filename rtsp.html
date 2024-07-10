@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Streaming</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Danfo&family=Madimi+One&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Trade+Winds&family=Whisper&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+    <style>
+        body{
+            /* background-color: black; */
+        }
+        body::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("https://images.ctfassets.net/3s5io6mnxfqz/6bPonRanZK8no9Kp4QCio0/6107f27715217bf13d59e24f201d6f06/AdobeStock_254529536.jpeg?w=828")
+          no-repeat center center / cover;
+        opacity: 0.9; /* Adjust the opacity as needed */
+        z-index: -1;
+      }
+
+        h1{
+            font-size: 50px;
+            font-family: "Roboto", cursive;
+        font-weight: 900;
+        font-style: normal;
+          
+        text-align: center;
+        padding-top: 5px;
+        padding-bottom: 15px;
+        color: yellow;
+        background: rgb(10, 33, 145);
+        background: linear-gradient(
+          90deg,
+          rgba(10, 33, 145, 0.6055672268907564) 18%,
+          rgba(121, 9, 107, 0.6727941176470589) 55%,
+          rgba(150, 9, 76, 0.8492647058823529) 95%
+        );
+        }
+
+        #submit {
+        padding-left: 500px;
+        height: 55px;
+        width: 150px;
+        margin-right: 58px;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        padding: 15px 30px;
+        color: #89fcf3;
+        /* background: linear-gradient(90deg, #4e07b0, #55e7f6); */
+        background: black;
+        border-color: #ff6b81;
+
+        text-decoration: none;
+        border-radius: 25px;
+        font-size: 20px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      }
+
+      #submit{
+        margin-bottom: 50px;
+        margin-left: 494px;
+        color: #ff6b81;
+        /* background: linear-gradient(90deg, #4e07b0, #55e7f6); */
+        background-color: black;
+        text-decoration: none;
+      }
+
+      #submit:hover {
+        text-decoration: none;
+        color: white;
+        background: rgb(10, 33, 145);
+        background: linear-gradient(
+          90deg,
+          rgba(10, 33, 145, 0.6055672268907564) 18%,
+          rgba(121, 9, 107, 0.6727941176470589) 55%,
+          rgba(150, 9, 76, 0.8492647058823529) 95%
+        );
+      }
+      a {
+        align-items: center;
+      }
+
+      a {
+        
+        margin-top: 20px;
+        padding-left: 545px;
+        height: 55px;
+        width: 150px;
+        margin-right: 58px;
+        margin-bottom: 20px;
+        margin-top: 60px;
+      }
+
+      a button {
+        font-size: 19px;
+        color: aliceblue;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        border-radius: 35px;
+        background-color: aliceblue;
+        border-color: #ff6b81;
+        padding-top: 60px;
+        padding-right: 350px;
+        background: black;
+      }
+
+      button:hover {
+        background-color: rgb(236, 190, 190);
+      }
+
+      .link {
+        padding: 15px 30px;
+        color:#ff6b81;
+        /* background: linear-gradient(90deg, #4e07b0, #55e7f6); */
+        background: black;
+        
+        text-decoration: none;
+      }
+
+      .link:hover {
+        text-decoration: none;
+        /* background: linear-gradient(90deg, #f751d0, rgb(143, 143, 219)); */
+        background: rgb(10, 33, 145);
+        background: linear-gradient(
+          90deg,
+          rgba(10, 33, 145, 0.6055672268907564) 18%,
+          rgba(121, 9, 107, 0.6727941176470589) 55%,
+          rgba(150, 9, 76, 0.8492647058823529) 95%
+        );
+        color: white;
+      }
+
+      /*==================*/
+      /* POP
+/*==================*/
+
+      @-webkit-keyframes pop-on-hover {
+        50% {
+          -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+        }
+      }
+      @keyframes pop-on-hover {
+        50% {
+          -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+        }
+      }
+      .pop-on-hover {
+        display: inline-block;
+        vertical-align: middle;
+        -webkit-transform: perspective(1px) translateZ(0);
+        transform: perspective(1px) translateZ(0);
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+      }
+      .pop-on-hover:hover,
+      .pop-on-hover:focus,
+      .pop-on-hover:active {
+        -webkit-animation-name: pop-on-hover;
+        animation-name: pop-on-hover;
+        -webkit-animation-duration: 0.3s;
+        animation-duration: 0.3s;
+        -webkit-animation-timing-function: linear;
+        animation-timing-function: linear;
+        -webkit-animation-iteration-count: 1;
+        animation-iteration-count: 1;
+      }
+      
+    </style>
+</head>
+
+<body>
+    <p>
+    <h1 align="center">UPLOAD STREAM LINK</h1>
+    </p>
+    <div class="container">
+        <div class="row">
+            <form method="post" action="/rtsp" enctype="multipart/form-data">
+                <dl>
+                    <p>
+                        <input type="text" name="rtsp_link" class="form-control" autocomplete="on" required>
+                    </p>
+                </dl>
+                <p>
+                    <input type="submit" value="Submit" class="btn btn-info link pop-on-hover" id="submit">
+                </p>
+            </form>
+            {% if filename %}
+            <div>
+                <video width="320" height="240" controls>
+                    <source src="{{ url_for('display_video', filename=filename) }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            {% endif %}
+
+        </div>
+    </div>
+    <a href="/"
+      ><button id="back" class="link pop-on-hover">
+        <!-- <i class="arrow left"></i><i class="arrow left"></i> -->
+        BACK
+      </button></a
+    >
+</body>
+
+</html>

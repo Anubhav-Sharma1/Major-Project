@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Danfo&family=Madimi+One&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Trade+Winds&family=Whisper&display=swap"
+      rel="stylesheet"
+    />
+    <title>Fabric-Defect-Detection</title>
+    <style>
+      body {
+        /* background-color: black; */
+        /* background: url("https://images.ctfassets.net/3s5io6mnxfqz/6bPonRanZK8no9Kp4QCio0/6107f27715217bf13d59e24f201d6f06/AdobeStock_254529536.jpeg?w=828");
+        background-repeat: no-repeat;
+        background-size: 100% auto; */
+
+        /* background: url("https://images.unsplash.com/photo-1620121692029-d088224ddc74?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"); */
+        /* background: url("https://images.unsplash.com/photo-1618556450994-a6a128ef0d9d?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"); */
+      }
+
+      body::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("https://images.ctfassets.net/3s5io6mnxfqz/6bPonRanZK8no9Kp4QCio0/6107f27715217bf13d59e24f201d6f06/AdobeStock_254529536.jpeg?w=828")
+          no-repeat center center / cover;
+        opacity: 0.9; /* Adjust the opacity as needed */
+        z-index: -1;
+      }
+
+      h1 {
+        font-size: 80px;
+        /* font-family: 'Permanent-Marker', cursive; */
+        /* font-family: "Permanent-Marker", cursive; */
+        /* font-family: "Times New Roman", Times, serif; */
+        /* font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif; */
+        font-family: "Whisper", cursive;
+        font-weight: 900;
+        font-style: normal;
+        text-align: center;
+        font-size: 7rem;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        /* color: #89fcf3; */
+        color: white;
+        background: rgb(10, 33, 145);
+        background: linear-gradient(
+          90deg,
+          rgba(10, 33, 145, 0.6055672268907564) 18%,
+          rgba(121, 9, 107, 0.6727941176470589) 55%,
+          rgba(150, 9, 76, 0.8492647058823529) 95%
+        );
+      }
+
+      a {
+        height: 55px;
+        width: 150px;
+        margin-right: 58px;
+        margin-bottom: 20px;
+        margin-top: 60px;
+      }
+
+      #camera {
+        margin-left: 195px;
+      }
+
+      .container {
+        /* margin: 0 10%;
+        display: flex;
+        overflow: hidden;
+        flex-direction: row;
+        gap: 15%;
+        align-items: center;
+        justify-content: center;
+        background-color: white; */
+        margin-left: 12rem;
+      }
+
+      a {
+        align-items: center;
+      }
+
+      button {
+        font-size: 19px;
+        color: #89fcf3;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+
+        border-radius: 35px;
+        background-color: aliceblue;
+        border-color: #ff6b81;
+        cursor: pointer;
+        background: black;
+      }
+
+      button:hover {
+        background-color: rgb(236, 190, 190);
+      }
+
+      .link {
+        padding: 15px 30px;
+        color: #ff6b81;
+        /* background: linear-gradient(90deg, #4e07b0, #55e7f6); */
+        background-color: black;
+        text-decoration: none;
+      }
+
+      .link:hover {
+        text-decoration: none;
+        /* background: #1e90ff; */
+        color: white;
+        background: rgb(10, 33, 145);
+        background: linear-gradient(
+          90deg,
+          rgba(10, 33, 145, 0.6055672268907564) 18%,
+          rgba(121, 9, 107, 0.6727941176470589) 55%,
+          rgba(150, 9, 76, 0.8492647058823529) 95%
+        );
+      }
+
+      /*==================*/
+      /* POP
+/*==================*/
+
+      @-webkit-keyframes pop-on-hover {
+        50% {
+          -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+        }
+      }
+      @keyframes pop-on-hover {
+        50% {
+          -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+        }
+      }
+      .pop-on-hover {
+        display: inline-block;
+        vertical-align: middle;
+        -webkit-transform: perspective(1px) translateZ(0);
+        transform: perspective(1px) translateZ(0);
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+      }
+      .pop-on-hover:hover,
+      .pop-on-hover:focus,
+      .pop-on-hover:active {
+        -webkit-animation-name: pop-on-hover;
+        animation-name: pop-on-hover;
+        -webkit-animation-duration: 0.3s;
+        animation-duration: 0.3s;
+        -webkit-animation-timing-function: linear;
+        animation-timing-function: linear;
+        -webkit-animation-iteration-count: 1;
+        animation-iteration-count: 1;
+      }
+
+      p {
+        font-size: 40px;
+        font-family: "Roboto", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+        /* font-weight: bold; */
+        text-align: center;
+        color: rgba(237, 233, 10, 0.887);
+        padding-left: 270px;
+        padding-right: 270px;
+        padding-bottom: 70px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- <h1>DISPLAY CAMERA STREAM</h1> -->
+
+    <h1>Fabric Defect Detection</h1>
+    <p>
+      Use any of these mentioned mediums to drop input, and detect stains in
+      fabric
+    </p>
+    <div class="container">
+      <a href="displaycamera"
+        ><button id="camera" class="link pop-on-hover">CAMERA</button></a
+      >
+      <a href="displayimage"
+        ><button class="link pop-on-hover">IMAGE</button></a
+      >
+      <a href="rtsp"><button class="link pop-on-hover">RTSP</button></a>
+      <!-- <a href="displaypdf"><button class="link pop-on-hover">PDF</button></a> -->
+      <a href="displayvideo"
+        ><button class="link pop-on-hover">VIDEO</button></a
+      >
+    </div>
+  </body>
+</html>
